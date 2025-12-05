@@ -10,6 +10,8 @@ mkdir -p certs
 echo -e "\e[37m Generating root Certificate Authority Private Key..."
 # create a 4096-bit RSA private key
 openssl genrsa -out certs/ca.key 4096
+# secure the key immediately
+chmod 600 certs/ca.key
 
 echo -e "\e[37m Generating root Certificate Authority Public Key..."
 # creates a self-signed certificate valid for 1 day
@@ -36,6 +38,8 @@ echo -e "\e[37m Processing service: overwhelming-minotaur"
 echo -e "\e[37m Generating Private Key..."
 # generate a new 4096-bit key for this service
 openssl genrsa -out certs/overwhelming-minotaur.key 4096
+# secure the key immediately
+chmod 600 certs/overwhelming-minotaur.key
 
 echo -e "\e[37m Generating Certificate Signing Request (CSR)..."
 # create a request stating "i am overwhelming-minotaur"
@@ -58,6 +62,9 @@ cp certs/ca.crt overwhelming-minotaur/certs/
 cp certs/overwhelming-minotaur.crt overwhelming-minotaur/certs/
 # the service needs its own private key to decrype messages intended for it
 cp certs/overwhelming-minotaur.key overwhelming-minotaur/certs/
+# secure the key immediately
+# somtimes copy operations can reset permissions
+chmod 600 overwhelming-minotaur/certs/overwhelming-minotaur.key
 
 echo -e "\e[32m overwhelming-minotaur setup complete!"
 echo -e "\e[37m"
