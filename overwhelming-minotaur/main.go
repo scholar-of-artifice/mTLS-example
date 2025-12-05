@@ -29,7 +29,7 @@ func main() {
 	if err != nil {
 		log.Fatalf("Error loading certificate keypair: %v", err)
 	}
-	fmt.Println("Identity Keypair loaded.")
+	fmt.Println("Complete: Identity Keypair loaded.")
 	// suppress unused variable error for now...
 	_ = cert
 }
