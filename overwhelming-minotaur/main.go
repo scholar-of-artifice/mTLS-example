@@ -4,7 +4,9 @@ import (
 	"crypto/tls"
 	"crypto/x509"
 	"fmt"
+	"io"
 	"log"
+	"net/http"
 	"os"
 )
 
@@ -30,6 +32,41 @@ func main() {
 		log.Fatalf("Error loading certificate keypair: %v", err)
 	}
 	fmt.Println("Complete: Identity Keypair loaded.")
-	// suppress unused variable error for now...
-	_ = cert
+
+	// configure TLS parameters
+	tlsConfig := &tls.Config{
+		Certificates: []tls.Certificate{cert},
+		ClientCAs:    caCertPool,
+		ClientAuth:   tls.RequireAndVerifyClientCert, // <- this enforces mutual TLS
+	}
+	fmt.Println("Complete: TLS parameters configured. (mTLS enforced)")
+
+	// define the request handler
+
+	// verify the incoming message and respond with the text defined in the project architecture
+	handler := func(w http.ResponseWriter, r *http.Request) {
+		// read the body of the request
+		body, err := io.ReadAll(r.Body)
+		if err != nil {
+			http.Error(w, "Unable to read body", http.StatusBadRequest)
+		}
+		defer r.Body.Close()
+
+		fmt.Printf("Received message: %s\n", string(body))
+		// send the response
+		response := "I really think secret messages are silly *chuckle*"
+		w.Write([]byte(response))
+		fmt.Printf("Sent response: %s\n", response)
+	}
+
+	// define the server, bind and listen
+	server := &http.Server{
+		Addr:      ":9000", // listen on port 9000
+		Handler:   http.HandlerFunc(handler),
+		TLSConfig: tlsConfig, // apply the mTLS settings
+	}
+	fmt.Printf("Complete: Server is listening on port %s\n", server.Addr)
+	// since we already provided the certs in TLSConfig, we pass empty strings
+	log.Fatal(server.ListenAndServeTLS("", ""))
+
 }
