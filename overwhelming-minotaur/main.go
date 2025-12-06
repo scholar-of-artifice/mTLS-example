@@ -65,7 +65,8 @@ func main() {
 		Handler:   http.HandlerFunc(handler),
 		TLSConfig: tlsConfig, // apply the mTLS settings
 	}
-	fmt.Printf("Complete: Server is listening on port %s", server.Addr)
+	fmt.Printf("Complete: Server is listening on port %s\n", server.Addr)
 	// since we already provided the certs in TLSConfig, we pass empty strings
 	log.Fatal(server.ListenAndServeTLS("", ""))
+
 }
