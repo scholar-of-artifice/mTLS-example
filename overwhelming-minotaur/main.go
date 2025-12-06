@@ -32,4 +32,13 @@ func main() {
 	fmt.Println("Complete: Identity Keypair loaded.")
 	// suppress unused variable error for now...
 	_ = cert
+
+	// configure TLS parameters
+	tlsConfig := &tls.Config{
+		Certificates: []tls.Certificate{cert},
+		ClientCAs:    caCertPool,
+		ClientAuth:   tls.RequireAndVerifyClientCert, // <- this enforces mutual TLS
+	}
+	fmt.Println("Complete: TLS parameters configured. (mTLS enforced)")
+
 }
