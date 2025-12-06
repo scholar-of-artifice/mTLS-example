@@ -1,4 +1,17 @@
 services:
+  # the central secrets manager
+  vault:
+    image: hashicorp/vault:latest
+    container_name: vault
+    ports:
+      - "8200:8200"
+    environment:
+      # starts vault in 'dev' mode
+      VAULT_DEV_ROOT_TOKEN_ID: root
+      VAULT_ADDR: "http://0.0.0.0:8200"
+    cap_add:
+      # prevent memory from being swapped to disk
+      - IPC_LOCK
   # the overwhelming-minotaur service
   overwhelming-minotaur:
     build:
@@ -11,5 +24,6 @@ services:
       # mount the local certs manually.
       # this will be removed in later phases.
       - ./certs:/app/certs
-
+    depends_on:
+      - vault
 
