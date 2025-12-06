@@ -1,0 +1,15 @@
+services:
+  # the overwhelming-minotaur service
+  overwhelming-minotaur:
+    build:
+      context: ./overwhelming-minotaur
+      dockerfile: Dockerfile
+    container_name: overwhelming-minotaur
+    ports:
+      - "9000:9000"
+    volumes:
+      # mount the local certs manually.
+      # this will be removed in later phases.
+      - ./certs:/app/certs
+
+
