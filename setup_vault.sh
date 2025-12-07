@@ -62,7 +62,7 @@ echo "✅ Vault PKI configured successfully!"
 # ---
 echo "🤝 configure AppRole Authentication"
 # enable AppRole auth method
-docker exec -env VAULT_TOKEN=$VAULT_TOKEN $VAULT_CONTAINER \
+docker exec --env VAULT_TOKEN=$VAULT_TOKEN $VAULT_CONTAINER \
     vault auth enable approle || echo "AppRole already enabled"
 # create a policy that allows 'update' on the specific PKI role
 # write the policy definition to a temporary file inside the container then apply it
