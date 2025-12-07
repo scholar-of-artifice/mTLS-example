@@ -31,7 +31,7 @@ template {
     contents = <<EOH
 {{- with secret "pki/issue/overwhelming-minotaur-role" "common_name=overwhelming-minotaur" -}}
 {{ .Data.issuing_ca }}
-{{ -end -}}
+{{- end -}}
 EOH
 }
 
@@ -42,7 +42,7 @@ template {
 {{- with secret "pki/issue/overwhelming-minotaur-role" "common_name=overwhelming-minotaur" "ttl=24h" -}}
 {{ .Data.certificate }}
 {{ .Data.issuing_ca }}
-{{ -end -}}
+{{- end -}}
 EOH
 }
 
@@ -51,7 +51,7 @@ template {
     contents = <<EOH
 {{- with secret "pki/issue/overwhelming-minotaur-role" "common_name=overwhelming-minotaur" "ttl=24h" -}}
 {{ .Data.private_key }}
-{{ -end -}}
+{{- end -}}
 EOH
 }
 
