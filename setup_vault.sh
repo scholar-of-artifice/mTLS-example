@@ -81,6 +81,14 @@ path "pki/issue/overwhelming-minotaur-role" {
 }
 EOF
 
+# create a policy that allows 'update' on the specific PKI role
+# write the policy definition to a temporary file inside the container then apply it
+vault policy write siege-leviathan-policy - << EOF
+path "pki/issue/siege-leviathan-role" {
+    capabilities = ["create", "update"]
+}
+EOF
+
 # create the AppRole and attach the policy
 vault write auth/approle/role/minotaur-auth-role \
     token_policies="minotaur-policy" \
