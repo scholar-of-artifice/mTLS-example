@@ -94,6 +94,14 @@ vault write auth/approle/role/overwhelming-minotaur-auth-role \
     token_policies="overwhelming-minotaur-policy" \
     token_ttl=1h \
     token_max_ttl=4h
+
+
+# create the AppRole and attach the policy
+vault write auth/approle/role/siege-leviathan-auth-role \
+    token_policies="siege-leviathan-policy" \
+    token_ttl=1h \
+    token_max_ttl=4h
+
 # fetch the RoleID and SecretID and save them locally...
 # the agen will read these files to log in
 echo "Fetching RoleID"
