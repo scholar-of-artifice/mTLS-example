@@ -1,5 +1,5 @@
 # --- base builder stage ----
-# use the official go image matching the go.mod version
+# use the official python image we can declare version as variable
 ARG PYTHON_VERSION=3.12
 FROM python:${PYTHON_VERSION}-slim AS base
 # PYTHONUNBUFFERED: prevents python from buffering stdout/stderror
@@ -31,7 +31,7 @@ COPY startup.sh .
 # make it executable
 RUN chmod +x startup.sh
 
-# document that the container listen on port 9000
+# document that the container listen on port 8003
 EXPOSE 8003
 # use a command that starts the agent and the app
 CMD ["./startup.sh"]

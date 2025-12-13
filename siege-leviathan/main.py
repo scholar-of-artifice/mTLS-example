@@ -14,7 +14,7 @@ async def root():
     This endpoint triggers the interaction.
     It acts as a Client to the 'overwhelming-minotaur' service.
     """
-    # create a secture SLL context
+    # create a secure SSL context
     ssl_context = ssl.create_default_context(
         purpose=ssl.Purpose.SERVER_AUTH,
         cafile=BUNDLE_CERT
@@ -24,7 +24,7 @@ async def root():
         certfile=BUNDLE_CERT
         # keyfile is not needed if the private key is in the certfile
     )
-    # define the tart service URL
+    # define the start service URL
     # NOTE: this comes from the docker-compose
     target_url = "https://overwhelming-minotaur:9000"
     # send the message defined as an example
@@ -41,5 +41,5 @@ async def root():
             }
     except Exception as e:
         return {
-            "error": f"Failed to connect to Minotaur: {str(e)}"
+            "error": f"Failed to connect to overwhelming-minotaur: {str(e)}"
         }
