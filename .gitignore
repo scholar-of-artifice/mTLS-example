@@ -212,4 +212,5 @@ docs/assets/.DS_Store
 *.key
 *.srl
 *.csr
+*.pem
 /secrets

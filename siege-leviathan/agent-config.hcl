@@ -24,13 +24,15 @@ auto_auth {
 
 # combine certs into one file to ensure they belong to the same pairing
 template {
-    destination = "/app/certs/overwhelming-minotaur.pem"
+    destination = "/app/certs/siege-leviathan.pem"
     contents = <<EOH
-{{- with secret "pki/issue/overwhelming-minotaur-role" "common_name=overwhelming-minotaur" "ttl=24h" -}}
+{{- with secret "pki/issue/siege-leviathan-role" "common_name=siege-leviathan" "ttl=24h" -}}
 {{ .Data.certificate }}
-{{ .Data.issuing_ca }}
 {{ .Data.private_key }}
+{{ .Data.issuing_ca }}
 {{- end -}}
 EOH
 }
+
+
 

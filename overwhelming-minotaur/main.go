@@ -13,7 +13,7 @@ import (
 func main() {
 	fmt.Println("service: overwhelming-minotaur starting...")
 	// read the Root CA certificate file from the disk
-	caCertFile, err := os.ReadFile("certs/ca.crt")
+	caCertFile, err := os.ReadFile("certs/overwhelming-minotaur.pem")
 	if err != nil {
 		log.Fatalf("Error reading CA certificate: %v", err)
 	}
@@ -27,7 +27,7 @@ func main() {
 	fmt.Println("Complete: Root CA loaded and trusted.")
 
 	// read the public certificate and the private key as a pair
-	cert, err := tls.LoadX509KeyPair("certs/overwhelming-minotaur.crt", "certs/overwhelming-minotaur.key")
+	cert, err := tls.LoadX509KeyPair("certs/overwhelming-minotaur.pem", "certs/overwhelming-minotaur.pem")
 	if err != nil {
 		log.Fatalf("Error loading certificate keypair: %v", err)
 	}
