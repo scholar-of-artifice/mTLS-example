@@ -1,18 +1,17 @@
 # Polyglot Security Foundations
 
+![License](https://img.shields.io/badge/license-MIT-green.svg?labelColor=white)
+
 > **A Zero-Trust orchestration sandbox demonstrating automated mTLS and secret rotation across Go and Python microservices.**
 
 ## 🧑‍💻 Technologies
 <!--technology badges here-->
-<div class="technology-list" alt="This project includes the use of the following technologies:">
-    <img src="docs/assets/badges/docker.svg" alt="Docker Logo" width="64"/>
-    <img src="docs/assets/badges/gnubash.svg" alt="GNU Bash Logo" width="64"/>
-    <img src="docs/assets/badges/vault.svg" alt="Hashicorp Vault Logo" width="64"/>
-    <img src="docs/assets/badges/go.svg" alt="Go Programming Language Logo" width="64"/>
-    <img src="docs/assets/badges/python.svg" alt="Python Programming Language Logo" width="64"/>
-    <img src="docs/assets/badges/fastapi.svg" alt="FastAPI Logo" width="64"/>
-</div>
-
+![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=fff)
+![Bash](https://img.shields.io/badge/Bash-4EAA25?logo=gnubash&logoColor=fff)
+![Vault](https://img.shields.io/badge/Vault-CA2171?logo=gnubash&logoColor=fff)
+![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=fff)
+![Go](https://img.shields.io/badge/Go-%2300ADD8.svg?&logo=go&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-009485.svg?logo=fastapi&logoColor=white)
 
 ## 🔐 Why This Matters
 
