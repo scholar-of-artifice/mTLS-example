@@ -6,9 +6,9 @@
 
 ## 🧑‍💻 Technologies
 <!--technology badges here-->
+![Vault](https://img.shields.io/badge/Vault-FFCF25?logo=vault&logoColor=fff)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=fff)
 ![Bash](https://img.shields.io/badge/Bash-4EAA25?logo=gnubash&logoColor=fff)
-![Vault](https://img.shields.io/badge/Vault-CA2171?logo=gnubash&logoColor=fff)
 ![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=fff)
 ![Go](https://img.shields.io/badge/Go-%2300ADD8.svg?&logo=go&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-009485.svg?logo=fastapi&logoColor=white)
